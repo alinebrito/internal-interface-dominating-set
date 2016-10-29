@@ -1,5 +1,6 @@
 
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,14 +10,20 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		//Para testes <PENDENTE>
-		List<String> test = new ArrayList<String>();
-		test.add("0");
-		test.add("1");
-		test.add("2");
+		File fileIn = new File("inputs/exemplo-1.csv"); //Arquivo de entrada.
 		
-		Graph g = new Graph();
-		System.out.println(g.calcBaseline(test));
+		
+		System.out.println("Internal Interface Dominating Set");
+		System.out.println("Calculando o Baseline (Aguarde)... ");
+		long timeInit = System.currentTimeMillis();
+		
+		Graph g = new Graph(fileIn);
+		System.out.println(g.calcBaseline());
+		
+		long timeFinal = System.currentTimeMillis();
+		
+		System.out.println("Cálculo finalizado, verifique o resultado no arquivo <output.txt>");
+		System.out.println("Tempo de Execução: " + (timeFinal - timeInit) + "ms.");
 
 	}
 
