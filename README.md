@@ -1,1 +1,1 @@
-# InternalInterfaceDominatingSet
+# Internal Interface Dominating Set
