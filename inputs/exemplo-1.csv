@@ -1,3 +1,6 @@
-teste1;Projeto A
-teste2;Projeto B
-teste2;Projeto A
+org.junit.internal.TextListener;Projeto A
+org.junit.internal.JUnitSystem;Projeto B
+org.junit.internal.runners.statements.Fail;Projeto A
+org.junit.internal.AssumptionViolatedException;Projeto B
+org.junit.internal.AssumptionViolatedException;Projeto C
+org.junit.internal.runners.JUnit4ClassRunner;Projeto B

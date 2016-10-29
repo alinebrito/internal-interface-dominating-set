@@ -43,7 +43,6 @@ public class Graph {
 				this.addClientToInterface(interfaceInternal, client);
 				this.addClient(client);
 			}
-//			this.printGraph();
 		} catch (IOException e) {
 			System.err.println("[ERROR] Falha ao ler o arquivo de entrada." + e);
 		}
@@ -76,14 +75,6 @@ public class Graph {
 			this.clients.put(client, v);
 		}
 	}
-	
-	private void printGraph(){
-		for(String name: this.interfaces.keySet()){
-			Vertex v = this.interfaces.get(name);
-			System.out.println(v.getLabel() + ": " + v.getListAdj());
-		}
-	}
-	
 	
 	/**
 	 * Calcula todas as combinações de conjuntos de interfaces.
@@ -120,30 +111,32 @@ public class Graph {
 	 * @param list
 	 * @return
 	 */
-	public List<List<String>> calcBaseline() {
+	public List<String> calcBaseline() {
 		
 		List<List<String>> conjuntos = this.calcAllSets(this.getNameAllInterfaces()); //Lista de todas as combinações.
-		List<List<String>> result = new ArrayList<List<String>>();
-		int size = Integer.MAX_VALUE;
+		List<String> result = new ArrayList<String>();
+		int bestSize = Integer.MAX_VALUE;
 		
 		for (List<String> subgraph : conjuntos) {
-			if(subgraph.size() > size){
-				continue;
-			}
-			if (this.containsAllClients(subgraph)){
-				if(subgraph.size() == size){
-					result.add(subgraph);
-				}
-				if(subgraph.size() < size){
-					result.clear();
-					result.add(subgraph);
-					size = subgraph.size();
+			if(subgraph.size() < bestSize){
+				if (this.containsAllClients(subgraph)){
+					if(subgraph.size() < bestSize){
+						result.clear();
+						result.addAll(subgraph);
+						bestSize = subgraph.size();
+					}
 				}
 			}
 		}
 		return result;
 	}
 	
+	/**
+	 * Retorna verdadeiro se o subgrafo conecta-se com todos os clientes.
+	 * Falso caso contrário.
+	 * @param subgraph
+	 * @return
+	 */
 	private boolean containsAllClients(List<String> subgraph) {
 		for(String name : this.clients.keySet()){
 			Vertex client = this.clients.get(name);
@@ -175,6 +168,10 @@ public class Graph {
 		return false;
 	}
 	
+	/**
+	 * Retorna uma lista com o nome de todas as interfaces.
+	 * @return
+	 */
 	private List<String> getNameAllInterfaces(){
 		List<String> list = new ArrayList<String>();
 		for(String name: this.interfaces.keySet()){

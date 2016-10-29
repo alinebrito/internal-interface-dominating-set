@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.corba.se.impl.javax.rmi.CORBA.Util;
+
 import graph.Graph;
 
 public class Main {
@@ -13,14 +15,17 @@ public class Main {
 		File fileIn = new File("inputs/exemplo-1.csv"); //Arquivo de entrada.
 		
 		
-		System.out.println("Internal Interface Dominating Set");
-		System.out.println("Calculando o Baseline (Aguarde)... ");
+		System.out.println("Internal Interface Dominating Set\nCalculando o Baseline (Aguarde)... ");
+		
 		long timeInit = System.currentTimeMillis();
 		
 		Graph g = new Graph(fileIn);
-		System.out.println(g.calcBaseline());
+		List<String> result = g.calcBaseline();
+		System.out.println("Cardinalidade: " + result.size());
 		
 		long timeFinal = System.currentTimeMillis();
+		
+		UtilFile.writeFile("output.txt", result);
 		
 		System.out.println("Cálculo finalizado, verifique o resultado no arquivo <output.txt>");
 		System.out.println("Tempo de Execução: " + (timeFinal - timeInit) + "ms.");
