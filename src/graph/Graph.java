@@ -41,7 +41,7 @@ public class Graph {
 				String interfaceInternal = values[0];
 				String client = values[1];
 				this.addClientToInterface(interfaceInternal, client);
-				this.addClient(client);
+				this.addClient(interfaceInternal, client);
 			}
 		} catch (IOException e) {
 			System.err.println("[ERROR] Falha ao ler o arquivo de entrada." + e);
@@ -64,14 +64,17 @@ public class Graph {
 		}
 	}
 	
-	private void addClient(final String client){
+	private void addClient(final String interfaceInternal, final String client){
 		if(this.clients.containsKey(client)){
-			return;
+			if(!this.clients.get(client).getListAdj().contains(interfaceInternal)){
+				this.clients.get(client).getListAdj().add(interfaceInternal);
+			}
 		}
 		else{
 			Vertex v = new Vertex();
 			v.setType(Type.CLIENT);
 			v.setLabel(client);
+			v.getListAdj().add(interfaceInternal);
 			this.clients.put(client, v);
 		}
 	}
