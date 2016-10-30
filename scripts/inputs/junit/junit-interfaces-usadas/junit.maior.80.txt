@@ -1,0 +1,6 @@
+org.junit.internal.AssumptionViolatedException
+org.junit.internal.matchers.TypeSafeMatcher
+org.junit.internal.runners.model.EachTestNotifier
+org.junit.internal.TextListener
+org.junit.internal.runners.JUnit4ClassRunner
+org.junit.internal.runners.statements.Fail

@@ -1,0 +1,25 @@
+{
+  "name": "internal-interface-dominating-set",
+  "version": "1.0.0",
+  "description": "Internal Interface Dominating Set",
+  "author": {
+    "name": "Aline Brito",
+    "email": "nbrito.aline@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alinebrito/internal-interface-dominating-set"
+  },
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+  "dependencies": {
+    "mongodb": "~2.0.50",
+    "line-reader": "~0.3.0",
+    "fs": "0.0.1-security",
+    "jsonfile": "~2.4.0"
+  },
+  "private": true,
+  "main": "server.js"
+}
