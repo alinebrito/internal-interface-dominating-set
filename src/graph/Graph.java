@@ -86,7 +86,7 @@ public class Graph {
 	 */
 	public List<List<String>> calcAllSets(List<String> listOriginal) {
 		
-		 List<List<String>> conjuntos = new ArrayList<List<String>>();
+		List<List<String>> conjuntos = new ArrayList<List<String>>();
 		if (listOriginal.isEmpty()) {
 			conjuntos.add(new ArrayList<String>());
 		}
@@ -116,11 +116,11 @@ public class Graph {
 	 */
 	public List<String> calcBaseline() {
 		
-		List<List<String>> conjuntos = this.calcAllSets(this.getNameAllInterfaces()); //Lista de todas as combinações.
+		List<List<String>> sets = this.calcAllSets(this.getNameAllInterfaces()); //Lista de todas as combinações.
 		List<String> result = new ArrayList<String>();
 		int bestSize = Integer.MAX_VALUE;
 		
-		for (List<String> subgraph : conjuntos) {
+		for (List<String> subgraph : sets) {
 			if(subgraph.size() < bestSize){
 				if (this.containsAllClients(subgraph)){
 					if(subgraph.size() < bestSize){
