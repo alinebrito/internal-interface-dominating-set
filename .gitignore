@@ -1,3 +1,6 @@
+inputs/
+/inputs/
+outputs/
 node_modules
 /bin/
 .classpath

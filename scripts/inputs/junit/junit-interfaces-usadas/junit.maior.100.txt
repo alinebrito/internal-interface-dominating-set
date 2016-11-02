@@ -1,2 +1,0 @@
-org.junit.internal.AssumptionViolatedException
-org.junit.internal.matchers.TypeSafeMatcher

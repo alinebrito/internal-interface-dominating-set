@@ -1,0 +1,2 @@
+Memória usada: 1300472 bytes.
+Tempo de Execução: 0ms.
