@@ -1,0 +1,1 @@
+mongo < createGraph.sh > graph/mavenGraph.txt
