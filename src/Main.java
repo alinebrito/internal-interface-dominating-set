@@ -19,16 +19,15 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in); 
 		List<String> result = new ArrayList<String>();
+		String nameOutput = "output-baseline.txt";
 		
 		try {
 			
 			System.out.println("\tInternal Interface Dominating Set \n\nSelecione a opção: \n[1] Calcular Baseline\n[2] Calcular Heurística\n>>");
 			String option = sc.nextLine();
-			//String option = "2";
 			
 			System.out.println("Informe o arquivo de entrada: \n>>");
 			String nameFile = sc.nextLine();
-			//String nameFile = "inputs/output.junit.maior.10.txt";
 			
 			File fileIn = new File(nameFile); //Arquivo de entrada.
 			Graph g = new Graph(fileIn);
@@ -40,6 +39,7 @@ public class Main {
 				timeFinal = System.currentTimeMillis();
 			}
 			else if(option.equals("2")){
+				nameOutput = "output-heuristic.txt";
 				System.out.println("Calculando Heurística (Aguarde)... ");
 				timeInit = System.currentTimeMillis();
 				result = g.calcHeuristic();
@@ -49,7 +49,7 @@ public class Main {
 				System.err.println("Opção Inválida!\n");
 			}
 			
-			System.out.println("Cálculo finalizado, verifique o resultado no arquivo <output.txt>");
+			System.out.println("Cálculo finalizado, verifique o resultado no arquivo <" + nameOutput + ">");
 			//Insere consumo de memória e tempo no arquivo de saída.
 			time = (timeFinal - timeInit);
 			memory = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
@@ -57,7 +57,8 @@ public class Main {
 			System.out.println("Memória usada: " + memory + " bytes.");
 			result.add("Memória usada: " + memory + " bytes.");
 			result.add("Tempo de Execução: " + time + "ms.");
-			UtilFile.writeFile("output.txt", result);
+			
+			UtilFile.writeFile(nameOutput, result);
 			
 		} catch (Exception e) {
 			System.err.println("\n[ERROR]: Falha ao calcular. Verifique o formato do arquivo de entrada utilizado.\n");

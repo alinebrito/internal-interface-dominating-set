@@ -66,27 +66,28 @@ public class UtilGraph {
 	 */
 	public static List<List<String>> calcAllSets(final List<String> listOriginal) {
 		
-		List<List<String>> conjuntos = new ArrayList<List<String>>();
+		List<List<String>> optionsSet = new ArrayList<List<String>>();
 		if (listOriginal.isEmpty()) {
-			conjuntos.add(new ArrayList<String>());
+			optionsSet.add(new ArrayList<String>());
 		}
 		else{
 			List<String> list = new ArrayList<String>(listOriginal);
-			String cabecalho = list.get(0);//armazena primeira posição da lista.
+			String header = list.get(0);//armazena primeira posição da lista.
 			List<String> sublist = list.subList(1, list.size());//restante da lista sem o cabeçallho.
-			for (List<String> conjunto : calcAllSets(sublist)) {
+			for (List<String> s : calcAllSets(sublist)) {
 
-				List<String> novoConjunto = new ArrayList<String>();
-				novoConjunto.add(cabecalho);
-				novoConjunto.addAll(conjunto);
+				List<String> newSet = new ArrayList<String>();
+				newSet.add(header);
+				newSet.addAll(s);
 				
-				//Adiciona novo conjunto na lista.
-				conjuntos.add(novoConjunto);
-				conjuntos.add(conjunto);
+				optionsSet.add(newSet);
+				optionsSet.add(s);
+				//System.out.println("Total de combinações: " + optionsSet.size());
 			}	
 		}
 		
-		return conjuntos;
+		
+		return optionsSet;
 	}
 	
 	

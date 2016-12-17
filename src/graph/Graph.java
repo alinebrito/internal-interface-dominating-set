@@ -36,11 +36,13 @@ public class Graph {
 			String  line = null;
 			while((line = inputReader.readLine()) != null){ //Percorre as linhas do arquivo.
 				String values[] = line.split(";");
-				String interfaceInternal = values[0];
-				String client = values[1];
+				String interfaceInternal = values[1];
+				String client = values[0];
 				this.addClientToInterface(interfaceInternal, client);
 				this.addClient(interfaceInternal, client);
 			}
+			System.out.println(this.interfaces.size() + " interfaces.");
+			System.out.println(this.clients.size() + " clientes.");
 		} catch (IOException e) {
 			System.err.println("[ERROR] Falha ao ler o arquivo de entrada." + e);
 		}
