@@ -82,7 +82,6 @@ public class UtilGraph {
 				
 				optionsSet.add(newSet);
 				optionsSet.add(s);
-				//System.out.println("Total de combinações: " + optionsSet.size());
 			}	
 		}
 		

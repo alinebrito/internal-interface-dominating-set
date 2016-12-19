@@ -13,13 +13,7 @@ public class Baseline {
 	 */
 	public List<String> calc(final Map<String, Vertex> interfaces, final Map<String, Vertex> clients) {
 		
-//		System.out.println("Quantidade de interfaces: " +  interfaces.size());
-		
 		List<List<String>> sets = UtilGraph.calcAllSets(UtilGraph.getListNames(interfaces)); //Lista de todas as combinações.
-		
-		
-//		System.out.println("Quantidade de conjuntos combinados: " +  sets.size());
-//		System.out.println(sets);
 		List<String> result = new ArrayList<String>();
 		int bestSize = Integer.MAX_VALUE;
 		
