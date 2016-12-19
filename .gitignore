@@ -4,6 +4,7 @@ inputs/
 outputs/
 node_modules
 /bin/
+.class
 .classpath
 .project
 output.txt
