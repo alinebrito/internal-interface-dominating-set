@@ -1,11 +1,12 @@
-## Internal Interface Dominating Set
+## Uma Heurística para Identificar Interfaces Internas Candidatas à Promoção (UFMG/DCC)
 
+Trabalho final da disciplina Projeto e Análise de Algoritmos (PAA, 2º/2016)
 
-Algorithms for calculating the Minimum Dominating Set of internal interfaces of a Java library.
+Algoritmo 1: Força bruta\
+Algoritmo 2: Heurística gulosa
 
-Algorithm 1 - Brute Force
+Apresentação: [link](https://youtu.be/PaoLcO4L2eg)
 
-Algorithm 2 - Greedy Heuristic
 
 
 
