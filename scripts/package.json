@@ -15,7 +15,7 @@
     "npm": ">= 1.0.0"
   },
   "dependencies": {
-    "mongodb": "~2.0.50",
+    "mongodb": "~3.6.1",
     "line-reader": "~0.3.0",
     "fs": "0.0.1-security",
     "jsonfile": "~2.4.0"
